@@ -6,24 +6,22 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = () => {
-  setInterval(function() {
-    document.querySelector(".valor").innerHTML = cambioDeValores();
-    document.querySelector("span").innerHTML = cambioDeSignos();
-  }, 10000);
+  setInterval(cambiarCarta, 10000);
 };
 
-document.getElementById("boton").addEventListener("click", botonCambiador);
+document.getElementById("boton").addEventListener("click", cambiarCarta);
 
-function botonCambiador() {
-  document.querySelector(".valor").innerHTML = cambioDeValores();
-  document.querySelector(
-    ".signo-arriba",
-    "signo-abajo"
-  ).innerHTML = cambioDeSignos();
+function cambiarCarta() {
+  const valor = cambioDeValores();
+  const signo = cambioDeSignos();
+
+  document.querySelector(".valor").innerHTML = valor;
+  document.querySelector(".signo-arriba").innerHTML = signo;
+  document.querySelector(".signo-abajo").innerHTML = signo;
 }
 
 let cambioDeValores = () => {
-  let valores = [
+  const valores = [
     "A",
     "2",
     "3",
@@ -38,12 +36,10 @@ let cambioDeValores = () => {
     "Q",
     "K"
   ];
-  let todosValores = Math.floor(Math.random() * valores.length);
-  return valores[todosValores];
+  return valores[Math.floor(Math.random() * valores.length)];
 };
 
 let cambioDeSignos = () => {
-  let variosSignos = ["♣", "♦", "♥", "♠"];
-  let todosLosSignos = Math.floor(Math.random() * variosSignos.length);
-  return variosSignos[todosLosSignos];
+  const signos = ["♣", "♦", "♥", "♠"];
+  return signos[Math.floor(Math.random() * signos.length)];
 };
