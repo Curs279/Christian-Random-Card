@@ -5,12 +5,6 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = () => {
-  setInterval(cambiarCarta, 10000);
-};
-
-document.getElementById("boton").addEventListener("click", cambiarCarta);
-
 function cambiarCarta() {
   const valor = cambioDeValores();
   const signo = cambioDeSignos();
@@ -19,6 +13,12 @@ function cambiarCarta() {
   document.querySelector(".signo-arriba").innerHTML = signo;
   document.querySelector(".signo-abajo").innerHTML = signo;
 }
+
+window.onload = () => {
+  setInterval(cambiarCarta, 10000);
+};
+
+document.getElementById("boton").addEventListener("click", cambiarCarta);
 
 let cambioDeValores = () => {
   const valores = [
